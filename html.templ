@@ -3,6 +3,7 @@ package main
 templ html(show string) {
     <head>
         <meta charset="UTF-8"/>
+        @htmxSrc()
     </head>
     <body>
         @body(show)
@@ -10,7 +11,7 @@ templ html(show string) {
 }
 
 templ body(show string) {
-    <div id="show">
+    <div id="show" hx-get="/" hx-trigger="load, every 1s" hx-swap="outerHTML">
         @templ.Raw(show)
     </div>
 }

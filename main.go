@@ -11,7 +11,6 @@ import (
 
 func main() {
     filename, port := handleFileName()
-    fmt.Println(filename, port)
 
     modTime := getFileModify(filename)
     show := getHtml(filename)
@@ -102,6 +101,8 @@ func getFileModify(filename string) time.Time {
 
 
 func printHelp() string {
-	return fmt.Sprintf("[usage]: %s <filename> [optional]<flags>\n", os.Args[0])
+	return fmt.Sprintf("[usage]: %s <filename> [optional]<flags>\n"+
+        "   [-h] display this help menu\n"+
+        "   [-p] specify port to start the server\n", os.Args[0])
 }
 
