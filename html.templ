@@ -1,0 +1,16 @@
+package main
+
+templ html(show string) {
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        @body(show)
+    </body>
+}
+
+templ body(show string) {
+    <div id="show">
+        @templ.Raw(show)
+    </div>
+}
