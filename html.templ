@@ -11,7 +11,7 @@ templ html(show string) {
 }
 
 templ body(show string) {
-    <div id="show" hx-get="/" hx-trigger="load, every 1s" hx-swap="outerHTML">
+    <div id="show" hx-get="/" hx-trigger="load, every 2s" hx-swap="outerHTML">
         @templ.Raw(show)
     </div>
 }
