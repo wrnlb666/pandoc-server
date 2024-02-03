@@ -30,6 +30,11 @@ func main() {
         component := html(show)
         return component.Render(c.Request().Context(), c.Response())
     })
+    e.GET("/body", func(c echo.Context) error {
+        component := body(show)
+        return component.Render(c.Request().Context(), c.Response())
+    })
+    e.GET("/main.go", func(c echo.Context) error {return nil})
 
     e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", port)))
 }

@@ -6,12 +6,12 @@ templ html(show string) {
         @htmxSrc()
     </head>
     <body>
-        @body(show)
+        <div id="show" hx-get="/body" hx-trigger="change, every 5s" hx-swap="innerHTML">
+            @templ.Raw(show)
+        </div>
     </body>
 }
 
 templ body(show string) {
-    <div id="show" hx-get="/" hx-trigger="load, every 2s" hx-swap="outerHTML">
-        @templ.Raw(show)
-    </div>
+    @templ.Raw(show)
 }
